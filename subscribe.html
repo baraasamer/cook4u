@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Cook4U | Subscribe</title>
+  <meta name="description" content="Subscribe to Cook4U monthly Arabic dinner plans. Delivery included. Dinner only." />
+
+  <link rel="preload" as="image" href="assets/hero-kabsa.jpg" />
+  <link rel="preload" as="image" href="assets/logo.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <div class="bg-ornament" aria-hidden="true"></div>
+
+  <header class="header">
+    <div class="container header__inner">
+      <a class="logo" href="index.html#home" aria-label="Back to home">
+        <img src="assets/logo.png" alt="Cook4U Logo" class="logo__img" />
+        <div class="logo__text">
+          <strong>Cook4U</strong>
+          <span data-i18n="brand.tag">Arabic Dinner Subscription • Malaysia</span>
+        </div>
+      </a>
+
+      <div class="lang">
+        <button id="langBtn" type="button" title="Change language">EN</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="container">
+      <div class="section__head">
+        <h2 data-i18n="plans.title">باقات الاشتراك</h2>
+        <p class="muted" data-i18n="plans.note">جميع الباقات تشمل التوصيل – وجبات عشاء فقط</p>
+      </div>
+
+      <div class="pricingGrid" id="plansGrid"></div>
+
+      <div class="legendRow">
+        <span class="legendPill">🌙 <span data-i18n="legend.dinner">عشاء فقط</span></span>
+        <span class="legendPill">🚚 <span data-i18n="legend.delivery">التوصيل شامل</span></span>
+      </div>
+
+      <div style="margin-top:18px;">
+        <a class="btn btn--ghost" href="index.html#contact" data-i18n="cta.contact">تواصل</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="muted" data-i18n="footer.note">اشتراك عشاء عربي • ماليزيا</div>
+      <div class="muted">© <span id="year"></span> Cook4U</div>
+    </div>
+  </footer>
+
+  <button class="toTop" id="toTop" aria-label="Back to top">↑</button>
+
+  <script src="app.js"></script>
+</body>
+</html>
