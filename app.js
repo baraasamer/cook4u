@@ -2,6 +2,8 @@
    - UI logic only (no frameworks)
    - Fix: toggle meals per card ONLY (auto-close others)
    - Fix: AR/EN switching with proper dir
+   - Fix: Active nav smooth + correct section detection
+   - Fix: Mobile WhatsApp CTA works (no code outside scope)
 */
 
 (() => {
@@ -13,7 +15,7 @@
   const SETTINGS = {
     storageKey: "cook4u_lang",
     defaultLang: "ar",
-    whatsappNumber: "602165794", // ✅ change to your real number (example: "60123456789")
+    whatsappNumber: "60192165794", // ✅ ضع رقمك هنا بدون +
   };
 
   // =========================
@@ -66,25 +68,25 @@
 
       "hero.kicker": "عشاء فقط • التوصيل شامل",
       "hero.title": "اشتراك وجبات عربية شهرية",
-      "hero.subtitle": "وجبات عشاء عربية بجودة عالية وسعر مناسب للطلاب العرب في ماليزيا.",
+      "hero.subtitle": "وجبات عشاء عربية بجودة عالية وسعر مناسب في ماليزيا.",
       "hero.primary": "اشترك الآن",
       "hero.secondary": "تعرف علينا",
       "hero.dinnerOnly": "عشاء فقط",
       "hero.deliveryIncluded": "التوصيل شامل",
       "stats.meals": "وجبة مقدمة",
-      "stats.students": "طالب/ة",
-      "hero.note": "اشتراك عشاء عربي مميز للطلاب العرب في ماليزيا.",
+      "stats.students": "عملاء",
+      "hero.note": "اشتراك عشاء عربي مميز بجودة ثابتة وتوصيل شامل.",
       "hero.scroll": "نزّل",
 
       "about.title": "رؤية Cook4U",
-      "about.text": "مطبخ متخصص في تقديم وجبات عشاء عربية للطلاب العرب في ماليزيا بجودة عالية وسعر مناسب مع توصيل شامل.",
+      "about.text": "مطبخ متخصص في تقديم وجبات عشاء عربية بجودة عالية وسعر مناسب مع توصيل شامل.",
       "about.f1Title": "طعم رائع مقابل السعر",
-      "about.f1Sub": "مناسب لميزانية الطلاب",
+      "about.f1Sub": "قيمة ممتازة",
       "about.f2Title": "توصيل موثوق",
       "about.f2Sub": "مناسب لوقت العشاء",
-      "about.f3Title": "مصمم للطلاب العرب",
-      "about.f3Sub": "عشاء عربي مريح",
-      "about.ribbon": "اختيار الطلاب",
+      "about.f3Title": "أكل عربي أصيل",
+      "about.f3Sub": "راحة وجودة",
+      "about.ribbon": "الأكثر طلبًا",
       "about.cardTitle": "اشتراك عشاء… بكل بساطة",
       "about.cardText": "اختر الباقة، اشترك خلال ثوانٍ عبر واتساب، واستمتع بعشاء عربي ثابت الجودة.",
 
@@ -112,8 +114,8 @@
       "contact.send": "إرسال",
       "contact.badge": "طلب سريع عبر واتساب",
 
-      "contact.sideTitle": "مناسب للطلاب في ماليزيا",
-      "contact.sideText": "اشتراك عشاء مع توصيل شامل. طعم ثابت، تغليف نظيف، وسعر مناسب.",
+      "contact.sideTitle": "اشتراك عشاء عربي",
+      "contact.sideText": "توصيل شامل. طعم ثابت. تغليف نظيف. سعر مناسب.",
       "contact.locationTitle": "الموقع",
       "contact.phoneTitle": "الهاتف",
       "contact.emailTitle": "البريد",
@@ -136,32 +138,32 @@
     en: {
       "brand.tag": "Arabic Dinner Subscription • Malaysia",
       "nav.home": "Home",
-      "nav.about": "About",
+      "nav.about": "Our Vision",
       "nav.plans": "Plans",
       "nav.faq": "FAQ",
       "nav.contact": "Contact",
 
       "hero.kicker": "Dinner Only • Delivery Included",
       "hero.title": "Monthly Arabic Dinner Subscription",
-      "hero.subtitle": "Premium Arabic dinner meals at student-friendly prices in Malaysia.",
+      "hero.subtitle": "Premium Arabic dinner meals with delivery included in Malaysia.",
       "hero.primary": "Subscribe Now",
       "hero.secondary": "Learn More",
       "hero.dinnerOnly": "Dinner Only",
       "hero.deliveryIncluded": "Delivery Included",
       "stats.meals": "Meals served",
-      "stats.students": "Students",
-      "hero.note": "A reliable Arabic dinner subscription for Arab students in Malaysia.",
+      "stats.students": "Customers",
+      "hero.note": "Reliable Arabic dinner subscription with consistent quality.",
       "hero.scroll": "Scroll",
 
-      "about.title": "About Cook4U",
-      "about.text": "A kitchen focused on Arabic dinner meals for Arab students in Malaysia — great taste, fair price, delivery included.",
+      "about.title": "Cook4U Vision",
+      "about.text": "A kitchen focused on Arabic dinner meals — great taste, fair price, delivery included.",
       "about.f1Title": "Great taste for the price",
-      "about.f1Sub": "Student-friendly budget",
+      "about.f1Sub": "Excellent value",
       "about.f2Title": "Reliable delivery",
       "about.f2Sub": "Perfect for dinner time",
-      "about.f3Title": "Made for Arab students",
-      "about.f3Sub": "Comfort food, done right",
-      "about.ribbon": "Student Choice",
+      "about.f3Title": "Authentic Arabic food",
+      "about.f3Sub": "Comfort & quality",
+      "about.ribbon": "Most Popular",
       "about.cardTitle": "Dinner subscription — made simple",
       "about.cardText": "Pick a plan, subscribe via WhatsApp in seconds, and enjoy consistent quality.",
 
@@ -189,8 +191,8 @@
       "contact.send": "Send",
       "contact.badge": "Quick order on WhatsApp",
 
-      "contact.sideTitle": "Perfect for students in Malaysia",
-      "contact.sideText": "Dinner subscription with delivery included. Clean packaging, consistent taste, fair price.",
+      "contact.sideTitle": "Arabic dinner subscription",
+      "contact.sideText": "Delivery included. Clean packaging. Consistent taste. Fair price.",
       "contact.locationTitle": "Location",
       "contact.phoneTitle": "Phone",
       "contact.emailTitle": "Email",
@@ -212,7 +214,7 @@
   };
 
   // =========================
-  // Plans data (same meaning)
+  // Plans data
   // =========================
   const PLANS = [
     {
@@ -234,7 +236,7 @@
       mealsPerWeek: 6,
       price: 625,
       currency: "RM",
-      popular: true, // ✅ Most popular
+      popular: true,
       meals: [
         { dayAr: "اليوم 1", dayEn: "Day 1", itemAr: "رز كبسه مع دجاج", itemEn: "Kabsa rice with chicken" },
         { dayAr: "اليوم 2", dayEn: "Day 2", itemAr: "رز كبسه مع دجاج", itemEn: "Kabsa rice with chicken" },
@@ -284,43 +286,31 @@
   function getLang() {
     return localStorage.getItem(SETTINGS.storageKey) || SETTINGS.defaultLang;
   }
-
   function setLang(lang) {
     localStorage.setItem(SETTINGS.storageKey, lang);
   }
-
   function t(lang, key) {
     return (I18N[lang] && I18N[lang][key]) ? I18N[lang][key] : key;
   }
-
   function setDocumentDirection(lang) {
     const html = document.documentElement;
-    if (lang === "ar") {
-      html.setAttribute("lang", "ar");
-      html.setAttribute("dir", "rtl");
-    } else {
-      html.setAttribute("lang", "en");
-      html.setAttribute("dir", "ltr");
-    }
+    html.setAttribute("lang", lang === "ar" ? "ar" : "en");
+    html.setAttribute("dir", lang === "ar" ? "rtl" : "ltr");
   }
-
   function buildWhatsAppLink(message) {
     const num = SETTINGS.whatsappNumber.replace(/[^\d]/g, "");
-    const encoded = encodeURIComponent(message);
-    return `https://wa.me/${num}?text=${encoded}`;
+    return `https://wa.me/${num}?text=${encodeURIComponent(message)}`;
   }
 
   // =========================
   // UI: Update i18n text
   // =========================
   function applyI18n(lang) {
-    // update all data-i18n nodes
     document.querySelectorAll("[data-i18n]").forEach(el => {
       const key = el.getAttribute("data-i18n");
       el.textContent = t(lang, key);
     });
 
-    // language button label
     const langBtn = document.getElementById("langBtn");
     if (langBtn) langBtn.textContent = (lang === "ar") ? "EN" : "AR";
   }
@@ -335,7 +325,7 @@
     const badges = [
       { icon: ICONS.star, ar: "جودة وطعم ثابت", en: "Consistent quality & taste" },
       { icon: ICONS.truck, ar: "توصيل شامل وسريع", en: "Fast delivery included" },
-      { icon: ICONS.check, ar: "أفضل خيار للطلاب العرب", en: "Best fit for Arab students" },
+      { icon: ICONS.check, ar: "أكل عربي أصيل", en: "Authentic Arabic food" },
     ];
 
     holder.innerHTML = badges.map(b => {
@@ -359,6 +349,7 @@
         : `${plan.mealsPerWeek} meals / week`;
 
       const perWeekLabel = t(lang, "plan.perWeek");
+
       const mostPopular = plan.popular
         ? `<span class="plan__ribbon">${ICONS.check}<span>${t(lang, "plan.mostPopular")}</span></span>`
         : "";
@@ -389,7 +380,6 @@
           <span class="metaPill">${ICONS.truck}<span>${t(lang, "plan.delivery")}</span></span>
         </div>
 
-        <!-- ✅ meals hidden by default -->
         <ul class="plan__list" data-meals style="display:none" aria-label="${t(lang, "plan.menuTitle")}">
           ${mealsList}
         </ul>
@@ -425,8 +415,6 @@
       if (!planCard) return;
 
       const lang = getLang();
-
-      // Find current plan data
       const planId = planCard.getAttribute("data-plan-id");
       const plan = PLANS.find(p => p.id === planId);
       if (!plan) return;
@@ -445,14 +433,14 @@
       }
 
       if (action === "toggleMeals") {
-        // ✅ ONLY toggle this card, and close others
         const thisMeals = planCard.querySelector("[data-meals]");
         if (!thisMeals) return;
 
         const isOpen = thisMeals.style.display !== "none";
 
-        // Close ALL other meals first
+        // Close others
         document.querySelectorAll("#plansGrid .plan").forEach(otherCard => {
+          if (otherCard === planCard) return;
           const meals = otherCard.querySelector("[data-meals]");
           const otherBtn = otherCard.querySelector('button[data-action="toggleMeals"]');
           if (meals) meals.style.display = "none";
@@ -463,7 +451,7 @@
           }
         });
 
-        // Toggle current one
+        // Toggle current
         if (!isOpen) {
           thisMeals.style.display = "block";
           btn.setAttribute("aria-expanded", "true");
@@ -475,14 +463,12 @@
           const label = btn.querySelector("span:last-child");
           if (label) label.textContent = t(lang, "plan.detailsShow");
         }
-
-        return;
       }
     });
   }
 
   // =========================
-  // Contact form -> WhatsApp
+  // Contact form -> WhatsApp + floating WA
   // =========================
   function setupContactForm() {
     const form = document.getElementById("contactForm");
@@ -491,10 +477,11 @@
 
     if (waFloat) {
       const lang = getLang();
-      const msg = (lang === "ar")
-        ? "السلام عليكم، أبغى استفسار عن الاشتراك."
-        : "Hi, I have a question about the subscription.";
-      waFloat.href = buildWhatsAppLink(msg);
+      waFloat.href = buildWhatsAppLink(
+        lang === "ar"
+          ? "السلام عليكم، أبغى استفسار عن الاشتراك."
+          : "Hi, I have a question about the subscription."
+      );
     }
 
     if (!form) return;
@@ -514,11 +501,9 @@
 
       window.open(buildWhatsAppLink(text), "_blank", "noopener,noreferrer");
 
-      if (note) {
-        note.textContent = (lang === "ar")
-          ? "تم فتح واتساب برسالة جاهزة ✅"
-          : "WhatsApp opened with a ready message ✅";
-      }
+      if (note) note.textContent = (lang === "ar")
+        ? "تم فتح واتساب برسالة جاهزة ✅"
+        : "WhatsApp opened with a ready message ✅";
 
       form.reset();
     });
@@ -530,14 +515,9 @@
   function setupMobileMenu() {
     const toggle = document.getElementById("navToggle");
     const links = document.getElementById("navLinks");
-
     if (!toggle || !links) return;
 
-    toggle.addEventListener("click", () => {
-      links.classList.toggle("show");
-    });
-
-    // close menu on link click (mobile)
+    toggle.addEventListener("click", () => links.classList.toggle("show"));
     links.addEventListener("click", (e) => {
       const a = e.target.closest("a");
       if (!a) return;
@@ -546,7 +526,7 @@
   }
 
   // =========================
-  // Smooth scroll + active nav
+  // Smooth scroll
   // =========================
   function setupSmoothScroll() {
     document.addEventListener("click", (e) => {
@@ -563,6 +543,9 @@
     });
   }
 
+  // =========================
+  // Active nav (smooth + correct)
+  // =========================
   function setActiveNav() {
     const links = Array.from(document.querySelectorAll(".nav__links a[href^='#']"));
     if (!links.length) return;
@@ -571,15 +554,82 @@
       .map(a => document.querySelector(a.getAttribute("href")))
       .filter(Boolean);
 
-    const obs = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
-        const id = "#" + entry.target.id;
+    const obs = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter(e => e.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+        if (!visible || !visible.target?.id) return;
+
+        const id = "#" + visible.target.id;
         links.forEach(a => a.classList.toggle("active", a.getAttribute("href") === id));
-      });
-    }, { threshold: 0.45 });
+      },
+      {
+        root: null,
+        rootMargin: "-120px 0px -55% 0px",
+        threshold: [0.15, 0.25, 0.35, 0.5, 0.65],
+      }
+    );
 
     sections.forEach(sec => obs.observe(sec));
+  }
+
+  // =========================
+  // Nav indicator bubble
+  // =========================
+  function setupNavIndicator() {
+    const wrap = document.getElementById("navLinks");
+    const indicator = document.getElementById("navIndicator");
+    if (!wrap || !indicator) return;
+
+    const links = Array.from(wrap.querySelectorAll("a"));
+    if (!links.length) return;
+
+    const moveTo = (a) => {
+      const r = a.getBoundingClientRect();
+      const wr = wrap.getBoundingClientRect();
+      const x = (r.left - wr.left) + (r.width / 2) - 12;
+      indicator.style.transform = `translateX(${x}px)`;
+      indicator.style.width = Math.max(24, r.width * 0.45) + "px";
+    };
+
+    const update = () => {
+      const active = wrap.querySelector("a.active") || links[0];
+      if (active) moveTo(active);
+    };
+
+    links.forEach(a => a.addEventListener("mouseenter", () => moveTo(a)));
+    wrap.addEventListener("mouseleave", update);
+    window.addEventListener("resize", update);
+
+    // Update when active changes due to scroll
+    const mo = new MutationObserver(update);
+    mo.observe(wrap, { subtree: true, attributes: true, attributeFilter: ["class"] });
+
+    setTimeout(update, 120);
+  }
+
+  // =========================
+  // Reveal on scroll
+  // =========================
+  function setupRevealOnScroll() {
+    const items = document.querySelectorAll(
+      "section, .hero, .card, .cardLite, details, .featureCard, .about__box"
+    );
+
+    items.forEach(el => el.classList.add("reveal"));
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    items.forEach(el => observer.observe(el));
   }
 
   // =========================
@@ -599,6 +649,56 @@
   }
 
   // =========================
+  // Counters (if you use data-count)
+  // =========================
+  function setupCounters() {
+    const nums = document.querySelectorAll("[data-count]");
+    if (!nums.length) return;
+
+    const animate = (el) => {
+      const target = parseInt(el.getAttribute("data-count"), 10) || 0;
+      const duration = 900;
+      const start = performance.now();
+
+      const step = (t) => {
+        const p = Math.min(1, (t - start) / duration);
+        const val = Math.floor(target * (1 - Math.pow(1 - p, 3)));
+        el.textContent = `+${val}`;
+        if (p < 1) requestAnimationFrame(step);
+      };
+
+      requestAnimationFrame(step);
+    };
+
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          animate(e.target);
+          obs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.6 });
+
+    nums.forEach(el => obs.observe(el));
+  }
+
+  // =========================
+  // Mobile WhatsApp CTA button (id="mobileCtaWA")
+  // =========================
+  function setupMobileCtaWA() {
+    const waBtn = document.getElementById("mobileCtaWA");
+    if (!waBtn) return;
+
+    const lang = getLang();
+    const message =
+      lang === "ar"
+        ? "مرحبا، أبغى طلب سريع للأكل العربي. ممكن ترسلوا التفاصيل؟"
+        : "Hi, I want a quick order for Arabic food. Can you send details?";
+
+    waBtn.setAttribute("href", buildWhatsAppLink(message));
+  }
+
+  // =========================
   // Language switch
   // =========================
   function setupLangSwitch() {
@@ -615,13 +715,15 @@
       renderHeroBadges(next);
       renderPlans(next);
 
-      // re-link WhatsApp quick badge (language sensitive)
+      setupMobileCtaWA();
+
       const waFloat = document.getElementById("waFloat");
       if (waFloat) {
-        const msg = (next === "ar")
-          ? "السلام عليكم، أبغى استفسار عن الاشتراك."
-          : "Hi, I have a question about the subscription.";
-        waFloat.href = buildWhatsAppLink(msg);
+        waFloat.href = buildWhatsAppLink(
+          next === "ar"
+            ? "السلام عليكم، أبغى استفسار عن الاشتراك."
+            : "Hi, I have a question about the subscription."
+        );
       }
     });
   }
@@ -629,92 +731,9 @@
   // =========================
   // Init
   // =========================
-  function setupRevealOnScroll() {
-  const items = document.querySelectorAll("section, .hero, .card, .cardLite, details, .featureCard");
-
-  items.forEach(el => el.classList.add("reveal"));
-
-  const obs = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add("is-visible");
-        obs.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.12 });
-
-  items.forEach(el => obs.observe(el));
-}
-
-// ===============================
-// Nav Indicator (Active menu bar)
-// ===============================
-function setupNavIndicator(){
-  const wrap = document.getElementById("navLinks");
-  const indicator = document.getElementById("navIndicator");
-  if (!wrap || !indicator) return;
-
-  const links = Array.from(wrap.querySelectorAll("a"));
-  if (!links.length) return;
-
-  const moveTo = (a) => {
-    const r = a.getBoundingClientRect();
-    const wr = wrap.getBoundingClientRect();
-
-    // RTL-safe positioning
-    const x = (r.left - wr.left) + (r.width / 2) - 12;
-    indicator.style.transform = `translateX(${x}px)`;
-    indicator.style.width = Math.max(24, r.width * 0.45) + "px";
-  };
-
-  const update = () => {
-    const active = wrap.querySelector("a.active") || links[0];
-    if (active) moveTo(active);
-  };
-
-  // hover
-  links.forEach(a => {
-    a.addEventListener("mouseenter", () => moveTo(a));
-  });
-
-  wrap.addEventListener("mouseleave", update);
-  window.addEventListener("resize", update);
-
-  // لو تغير active بسبب السكرول
-  const observer = new MutationObserver(update);
-  observer.observe(wrap, { subtree: true, attributes: true, attributeFilter: ["class"] });
-
-  setTimeout(update, 100);
-}
-// ===============================
-// Reveal elements on scroll
-// ===============================
-function setupRevealOnScroll(){
-  const items = document.querySelectorAll(
-    "section, .hero, .card, .cardLite, details, .featureCard, .about__box"
-  );
-
-  items.forEach(el => el.classList.add("reveal"));
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if(entry.isIntersecting){
-        entry.target.classList.add("is-visible");
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.12 });
-
-  items.forEach(el => observer.observe(el));
-}
-// =========================
-
   document.addEventListener("DOMContentLoaded", () => {
-    // year
     const year = document.getElementById("year");
     if (year) year.textContent = String(new Date().getFullYear());
-
-    setupRevealOnScroll();
 
     const lang = getLang();
     setDocumentDirection(lang);
@@ -728,78 +747,12 @@ function setupRevealOnScroll(){
     setupMobileMenu();
     setupSmoothScroll();
     setActiveNav();
+    setupNavIndicator();
     setupToTop();
     setupLangSwitch();
-    setupCounters();
-    setupNavIndicator();
     setupRevealOnScroll();
-
-
-
+    setupCounters();
+    setupMobileCtaWA();
   });
 
-function setActiveNav() {
-  const links = Array.from(document.querySelectorAll(".nav__links a[href^='#']"));
-  if (!links.length) return;
-
-  const sections = links
-    .map(a => document.querySelector(a.getAttribute("href")))
-    .filter(Boolean);
-
-  // important: account for sticky header height
-  const obs = new IntersectionObserver(
-    (entries) => {
-      // pick the most visible section
-      const visible = entries
-        .filter(e => e.isIntersecting)
-        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-
-      if (!visible || !visible.target?.id) return;
-
-      const id = "#" + visible.target.id;
-      links.forEach(a => a.classList.toggle("active", a.getAttribute("href") === id));
-    },
-    {
-      root: null,
-      // top negative = ignore area hidden under sticky header
-      // bottom negative = avoid jumping too early
-      rootMargin: "-120px 0px -55% 0px",
-      threshold: [0.15, 0.25, 0.35, 0.5, 0.65],
-    }
-  );
-
-  sections.forEach(sec => obs.observe(sec));
-}
-
 })();
-function setupCounters() {
-  const nums = document.querySelectorAll("[data-count]");
-  if (!nums.length) return;
-
-  const animate = (el) => {
-    const target = parseInt(el.getAttribute("data-count"), 10) || 0;
-    const duration = 900;
-    const start = performance.now();
-    const from = 0;
-
-    const step = (t) => {
-      const p = Math.min(1, (t - start) / duration);
-      const val = Math.floor(from + (target - from) * (1 - Math.pow(1 - p, 3)));
-      el.textContent = `+${val}`;
-      if (p < 1) requestAnimationFrame(step);
-    };
-
-    requestAnimationFrame(step);
-  };
-
-  const obs = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        animate(e.target);
-        obs.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.6 });
-
-  nums.forEach(el => obs.observe(el));
-}
