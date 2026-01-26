@@ -402,70 +402,104 @@
   // =========================
   // Plans interactions
   // =========================
-  function setupPlanActions() {
-    const grid = document.getElementById("plansGrid");
-    if (!grid) return;
+function setupPlanActions() {
+  const grid = document.getElementById("plansGrid");
+  if (!grid) return;
 
-    grid.addEventListener("click", (e) => {
-      const btn = e.target.closest("button[data-action]");
-      if (!btn) return;
+  grid.addEventListener("click", (e) => {
+    const btn = e.target.closest("button[data-action]");
+    if (!btn) return;
 
-      const action = btn.getAttribute("data-action");
-      const planCard = btn.closest(".plan");
-      if (!planCard) return;
+    const action = btn.getAttribute("data-action");
+    const planCard = btn.closest(".plan");
+    if (!planCard) return;
 
-      const lang = getLang();
-      const planId = planCard.getAttribute("data-plan-id");
-      const plan = PLANS.find(p => p.id === planId);
-      if (!plan) return;
+    const lang = getLang();
+    const planId = planCard.getAttribute("data-plan-id");
+    const plan = PLANS.find((p) => p.id === planId);
+    if (!plan) return;
 
-      if (action === "subscribe") {
-        const planTitle = (lang === "ar")
+    // =========================
+    // Subscribe
+    // =========================
+    if (action === "subscribe") {
+      const planTitle =
+        lang === "ar"
           ? `${plan.mealsPerWeek} وجبات في الأسبوع`
           : `${plan.mealsPerWeek} meals/week`;
 
-        const msg = (lang === "ar")
+      const msg =
+        lang === "ar"
           ? `السلام عليكم، أبغى اشترك في باقة ${planTitle} بسعر ${plan.currency} ${plan.price}. (عشاء فقط + التوصيل شامل)`
           : `Hi, I want to subscribe to the ${planTitle} plan for ${plan.currency} ${plan.price}. (Dinner only + delivery included)`;
 
-        window.open(buildWhatsAppLink(msg), "_blank", "noopener,noreferrer");
-        return;
-      }
+      window.open(buildWhatsAppLink(msg), "_blank", "noopener,noreferrer");
+      return;
+    }
 
-      if (action === "toggleMeals") {
-        const thisMeals = planCard.querySelector("[data-meals]");
-        if (!thisMeals) return;
+    // =========================
+    // Toggle meals
+    // =========================
+  if (action === "toggleMeals") {
+  const thisMeals = planCard.querySelector('[data-meals]');
+  if (!thisMeals) return;
 
-        const isOpen = thisMeals.style.display !== "none";
+  const isOpenNow = thisMeals.style.display !== "none";
 
-        // Close others
-        document.querySelectorAll("#plansGrid .plan").forEach(otherCard => {
-          if (otherCard === planCard) return;
-          const meals = otherCard.querySelector("[data-meals]");
-          const otherBtn = otherCard.querySelector('button[data-action="toggleMeals"]');
-          if (meals) meals.style.display = "none";
-          if (otherBtn) {
-            otherBtn.setAttribute("aria-expanded", "false");
-            const label = otherBtn.querySelector("span:last-child");
-            if (label) label.textContent = t(lang, "plan.detailsShow");
-          }
-        });
+  // 1) اقفل أي قائمة مفتوحة (غير الحالية)
+  document.querySelectorAll("#plansGrid .plan").forEach(otherCard => {
+    const meals = otherCard.querySelector('[data-meals]');
+    const otherBtn = otherCard.querySelector('button[data-action="toggleMeals"]');
+    if (!meals) return;
 
-        // Toggle current
-        if (!isOpen) {
-          thisMeals.style.display = "block";
-          btn.setAttribute("aria-expanded", "true");
-          const label = btn.querySelector("span:last-child");
-          if (label) label.textContent = t(lang, "plan.detailsHide");
-        } else {
-          thisMeals.style.display = "none";
-          btn.setAttribute("aria-expanded", "false");
-          const label = btn.querySelector("span:last-child");
-          if (label) label.textContent = t(lang, "plan.detailsShow");
-        }
-      }
+    // لو هذا هو نفس الكارد، تجاهله هنا (نعالجه تحت)
+    if (otherCard === planCard) return;
+
+    // اقفلها فورًا وبسلاسة
+    meals.style.maxHeight = "0px";
+    setTimeout(() => {
+      meals.style.display = "none";
+    }, 250);
+
+    // رجّع نص الزر + aria
+    if (otherBtn) {
+      otherBtn.setAttribute("aria-expanded", "false");
+      const label = otherBtn.querySelector("span:last-child");
+      if (label) label.textContent = t(lang, "plan.detailsShow");
+    }
+  });
+
+  // 2) Toggle للقائمة الحالية
+  if (!isOpenNow) {
+    // افتح الحالية
+    thisMeals.style.display = "block";
+    thisMeals.style.maxHeight = "0px";
+    requestAnimationFrame(() => {
+      thisMeals.style.maxHeight = thisMeals.scrollHeight + "px";
     });
+
+    btn.setAttribute("aria-expanded", "true");
+    const label = btn.querySelector("span:last-child");
+    if (label) label.textContent = t(lang, "plan.detailsHide");
+  } else {
+    // اقفل الحالية
+    thisMeals.style.maxHeight = "0px";
+    setTimeout(() => {
+      thisMeals.style.display = "none";
+    }, 250);
+
+    btn.setAttribute("aria-expanded", "false");
+    const label = btn.querySelector("span:last-child");
+    if (label) label.textContent = t(lang, "plan.detailsShow");
   }
+
+  return;
+}
+  });
+}
+
+
+
 
   // =========================
   // Contact form -> WhatsApp + floating WA
