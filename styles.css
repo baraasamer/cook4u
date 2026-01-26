@@ -2918,3 +2918,192 @@ p{
 }
 
 
+.plan__list[data-meals]{
+  overflow: hidden;
+  transition: max-height .28s var(--ease);
+  will-change: max-height;
+}
+/* =========================
+   Meals list readability (Mobile & Desktop)
+   ========================= */
+
+.plan__list[data-meals]{
+  /* already: overflow/transition from previous step */
+  background: rgba(255,255,255,.92);
+  border: 1px solid rgba(58,35,23,.18);
+  box-shadow: 0 14px 35px rgba(0,0,0,.14);
+  border-radius: 18px;
+
+  padding: 14px 14px;
+  margin-top: 12px;
+
+  color: #2A1A12;          /* readable dark */
+  line-height: 1.85;
+  font-size: 15px;
+
+  list-style: none;         /* we will draw bullets ourselves */
+}
+
+/* Each meal row */
+.plan__list[data-meals] li{
+  position: relative;
+  padding: 10px 10px 10px 26px;
+  border-bottom: 1px dashed rgba(58,35,23,.16);
+  opacity: 1;
+}
+
+/* Last row no divider */
+.plan__list[data-meals] li:last-child{
+  border-bottom: 0;
+}
+
+/* Custom bullet */
+.plan__list[data-meals] li::before{
+  content: "•";
+  position: absolute;
+  left: 12px;
+  top: 8px;
+  font-size: 20px;
+  opacity: .7;
+}
+
+/* Better wrapping for long Arabic text */
+.plan__list[data-meals] li{
+  white-space: normal;
+  word-break: break-word;
+}
+
+/* Mobile: keep it neat, scroll if long */
+@media (max-width: 640px){
+  .plan__list[data-meals]{
+    max-height: 240px;      /* change if you want taller */
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* smoother scrollbar on iOS (optional) */
+  .plan__list[data-meals]::-webkit-scrollbar{
+    width: 8px;
+  }
+  .plan__list[data-meals]::-webkit-scrollbar-thumb{
+    background: rgba(58,35,23,.22);
+    border-radius: 999px;
+  }
+}
+
+
+/* =========================
+   Fix: Subscribe button overlaying meals list
+   ========================= */
+
+/* make sure the plan card doesn't clip / overlap */
+.plan{
+  position: relative;
+  overflow: visible;
+}
+
+/* force meals list to be in normal flow (not absolute) */
+.plan__list[data-meals]{
+  position: relative !important;
+  inset: auto !important;     /* cancels top/left/right/bottom if set */
+  z-index: 1;
+  margin-bottom: 12px;        /* space before buttons */
+}
+
+/* keep action buttons below everything */
+.plan__actions{
+  position: relative !important;
+  z-index: 2;
+  margin-top: 10px;
+}
+
+.plan__list[data-meals]{
+  overflow: hidden;
+  transition: max-height .25s ease;
+}
+
+
+/* =========================
+   FIX: Buttons contrast
+========================= */
+
+.btn--primary {
+  background: linear-gradient(135deg, #7a3516, #a34c24);
+  color: #fff;
+  box-shadow: 0 10px 25px rgba(0,0,0,.25);
+}
+
+.btn--primary:hover {
+  filter: brightness(1.05);
+}
+
+.btn--soft {
+  background: rgba(255,255,255,0.08);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.18);
+}
+
+.btn--soft:hover {
+  background: rgba(255,255,255,0.15);
+}
+
+
+@media (max-width: 768px) {
+  .plan__list {
+    font-size: 15px;
+  }
+
+  .plan__actions {
+    flex-direction: column;
+  }
+}
+
+.plan__actions button[data-action="toggleMeals"][disabled] {
+  opacity: 1 !important;
+}
+
+
+/* FIX FINAL: Show meals button visibility */
+.plan__actions button[data-action="toggleMeals"] {
+  background: linear-gradient(
+    180deg,
+    rgba(255,255,255,0.95),
+    rgba(245,235,220,0.95)
+  ) !important;
+
+  color: #2A1A12 !important;
+  border: 1.5px solid rgba(180,140,90,.45) !important;
+
+  opacity: 1 !important;
+  filter: none !important;
+
+  box-shadow:
+    0 8px 20px rgba(0,0,0,.12),
+    inset 0 0 0 1px rgba(255,255,255,.6);
+
+  font-weight: 600;
+}
+
+/* Hover / Active */
+.plan__actions button[data-action="toggleMeals"]:hover {
+  background: linear-gradient(
+    180deg,
+    #ffffff,
+    #f1e4cf
+  ) !important;
+
+  box-shadow:
+    0 12px 28px rgba(0,0,0,.18);
+}
+
+/* When meals are open */
+.plan__actions button[data-action="toggleMeals"][aria-expanded="true"] {
+  background: linear-gradient(
+    180deg,
+    #2A1A12,
+    #3a2317
+  ) !important;
+
+  color: #ffffff !important;
+  border-color: transparent !important;
+}
