@@ -29,27 +29,34 @@
   <header class="header" role="banner">
     <div class="container header__inner">
 
-      <a class="logo" href="#home">
-<img class="logo__img" src="/assets/logo.png" alt="Cook4U Logo" />
-  <div class="logo__text">
-    <strong>Cook4U</strong>
-    <span>Arabic Dinner Subscription • Malaysia</span>
-  </div>
-</a>
+      <a class="logo" href="#home" aria-label="Cook4U Home">
+        <img class="logo__img" src="/assets/logo.png" alt="Cook4U Logo" />
+        <div class="logo__text">
+          <strong>Cook4U</strong>
+          <span data-i18n="brand.tag">Arabic Dinner Subscription • Malaysia</span>
+        </div>
+      </a>
 
-
-      <nav class="nav" aria-label="Primary">
-        <button class="nav__toggle" id="navToggle" type="button" aria-label="Open menu">
+      <nav class="nav" aria-label="Primary navigation">
+        <button class="nav__toggle" id="navToggle" type="button" aria-label="Open menu" aria-expanded="false">
           <span class="nav__toggleIcon" aria-hidden="true"></span>
         </button>
 
         
         <div class="nav__links" id="navLinks">
-          <a href="#home" data-i18n="nav.home">الرئيسية</a>
-          <a href="#about" data-i18n="nav.about">رؤيتنا</a>
-          <a href="#plans" data-i18n="nav.plans">الباقات</a>
-          <a href="#faq" data-i18n="nav.faq">الأسئلة</a>
-          <a href="#contact" data-i18n="nav.contact">تواصل</a>
+           <a href="#home" data-i18n="nav.home">الرئيسية</a>
+            <a href="#about" data-i18n="nav.about">رؤيتنا</a>
+
+             <!-- NEW -->
+            <a href="#menu" data-i18n="nav.menu">المنيو</a>
+
+            <a href="#plans" data-i18n="nav.plans">الباقات</a>
+
+             <!-- NEW -->
+             <a href="#how" data-i18n="nav.how">كيف يشتغل</a>
+
+             <a href="#faq" data-i18n="nav.faq">الأسئلة</a>
+             <a href="#contact" data-i18n="nav.contact">تواصل</a>
           
           <span class="navIndicator" id="navIndicator" aria-hidden="true"></span>
 
@@ -182,55 +189,62 @@
 
           <div class="feature">
             <div class="feature__icon" aria-hidden="true">
-              <!-- Check -->
-              <svg viewBox="0 0 24 24" class="icon"><path d="M9 16.2l-3.5-3.5L4 14.2l5 5 11-11-1.5-1.5-9.5 9.5z" fill="currentColor"/></svg>
+              <!-- Truck -->
+              <svg viewBox="0 0 24 24" class="icon"><path d="M3 6h11v10H3V6zm13 3h3l2 3v4h-5V9zm-1 9a2 2 0 104 0h-4zm-10 0a2 2 0 104 0H5z" fill="currentColor"/></svg>
             </div>
             <div>
               <div class="feature__title" data-i18n="about.f2Title">Reliable delivery</div>
-              <div class="feature__sub" data-i18n="about.f2Sub">Dinner schedule friendly</div>
+              <div class="feature__sub" data-i18n="about.f2Sub">Dinner time friendly</div>
             </div>
           </div>
 
           <div class="feature">
             <div class="feature__icon" aria-hidden="true">
-              <!-- Heart -->
-              <svg viewBox="0 0 24 24" class="icon"><path d="M12 21s-8-4.5-8-11a4.5 4.5 0 018-2 4.5 4.5 0 018 2c0 6.5-8 11-8 11z" fill="currentColor"/></svg>
+              <!-- Checkmark Shield -->
+              <svg viewBox="0 0 24 24" class="icon"><path d="M12 2l7 4v6c0 5-3 9-7 10-4-1-7-5-7-10V6l7-4zm-1 13l-3-3 1.4-1.4L11 12.2l4.6-4.6L17 9l-6 6z" fill="currentColor"/></svg>
             </div>
             <div>
-              <div class="feature__title" data-i18n="about.f3Title">Made for Arab students</div>
-              <div class="feature__sub" data-i18n="about.f3Sub">Arabic comfort dinner</div>
+              <div class="feature__title" data-i18n="about.f3Title">Authentic Arabic food</div>
+              <div class="feature__sub" data-i18n="about.f3Sub">Comfort & quality</div>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="about__card">
-        <div class="about__cardTop">
-          <div class="ribbon" data-i18n="about.ribbon">Students’ Choice</div>
-        </div>
-        <h3 data-i18n="about.cardTitle">Dinner subscription, simplified</h3>
+      <div class="about__box">
+        <div class="about__badge" data-i18n="about.ribbon">Most Popular</div>
+        <h3 class="about__boxTitle" data-i18n="about.cardTitle">Dinner subscription… made simple</h3>
         <p class="muted" data-i18n="about.cardText">
-          Choose a plan, subscribe in seconds via WhatsApp, and enjoy consistent Arabic dinners.
+          Pick a plan, subscribe via WhatsApp in seconds, and enjoy consistent quality Arabic dinners.
         </p>
-
-        <div class="about__ctaRow">
-          <a class="btn btn--primary" href="#plans" data-i18n="cta.viewPlans">View plans</a>
-          <a class="btn btn--soft" href="#contact" data-i18n="cta.contact">Contact</a>
-        </div>
       </div>
     </div>
   </section>
 
-  <!-- Plans -->
-  <section id="plans" class="section">
-    <div class="container">
-      <div class="section__head section__head--row">
-        <div>
-          <h2 data-i18n="plans.title">باقات الاشتراك</h2>
-          <p class="muted" data-i18n="plans.note">جميع الباقات تشمل التوصيل المجاني – وجبات عشاء فقط</p>
-        </div>
+<!-- Menu Section (NEW - Horizontal Scroll) -->
+<section id="menu" class="section">
+  <div class="container">
+    <div class="section__head section__head--row">
+      <div>
+        <h2 class="section__title" data-i18n="menu.title">اكتشف منيو Cook4U</h2>
+        <p class="muted" data-i18n="menu.subtitle">7 وجبات للأسبوع (مؤقتًا كبسة) — بنحدّث الصور والأصناف قريبًا.</p>
+      </div>
+      <a class="btn btn--primary" href="#plans" data-i18n="menu.cta">شوف المنيو</a>
+    </div>
 
-        <div class="miniLegend" aria-label="Included features">
+    <!-- Scroll container with cards -->
+    <div class="menuRow" id="menuRow"></div>
+  </div>
+</section>
+
+  <!-- Plans -->
+  <section id="plans" class="section section--alt">
+    <div class="container">
+      <div class="section__head">
+        <h2 class="section__title" data-i18n="plans.title">Subscription Plans</h2>
+        <p class="muted" data-i18n="plans.note">All plans include delivery — Dinner only</p>
+
+        <div class="miniLegend">
           <span class="miniLegend__item">
             <svg viewBox="0 0 24 24" class="icon"><path d="M21 14.5A8.5 8.5 0 019.5 3a7 7 0 1011.5 11.5z" fill="currentColor"/></svg>
             <span data-i18n="legend.dinner">Dinner only</span>
@@ -245,6 +259,51 @@
       <div class="pricing" id="plansGrid" aria-label="Subscription plans"></div>
     </div>
   </section>
+
+  <!-- =========================
+     How it works (NEW) — بين الباقات والأسئلة
+========================= -->
+<section id="how" class="section">
+  <div class="container">
+    <div class="section__head section__head--row">
+      <div>
+        <h2 class="section__title" data-i18n="how.title">كيف يشتغل</h2>
+        <p class="muted" data-i18n="how.subtitle">3 خطوات بسيطة وتبدأ 🤝</p>
+      </div>
+
+      <a class="btn btn--primary" href="#plans" data-i18n="how.cta">عرض الباقات</a>
+    </div>
+
+    <div class="howGrid">
+      <article class="howCard">
+        <div class="howNum">1</div>
+        <div class="howMedia">
+          <img src="assets/how/step1.jpg" alt="Step 1" loading="lazy">
+        </div>
+        <h3 class="howTitle" data-i18n="how.s1Title">حصل على خطتك المثالية</h3>
+        <p class="muted" data-i18n="how.s1Text">اختر الباقة المناسبة لعدد وجباتك الأسبوعية.</p>
+      </article>
+
+      <article class="howCard">
+        <div class="howNum">2</div>
+        <div class="howMedia">
+          <img src="assets/how/step2.jpg" alt="Step 2" loading="lazy">
+        </div>
+        <h3 class="howTitle" data-i18n="how.s2Title">أنت تختار، ونحن نطبخ</h3>
+        <p class="muted" data-i18n="how.s2Text">نجهّز الوجبات بجودة ثابتة وتغليف نظيف.</p>
+      </article>
+
+      <article class="howCard">
+        <div class="howNum">3</div>
+        <div class="howMedia">
+          <img src="assets/how/step3.jpg" alt="Step 3" loading="lazy">
+        </div>
+        <h3 class="howTitle" data-i18n="how.s3Title">توصيل وجباتك</h3>
+        <p class="muted" data-i18n="how.s3Text">التوصيل شامل ومناسب لوقت العشاء.</p>
+      </article>
+    </div>
+  </div>
+</section>
 
   <!-- FAQ -->
   <section id="faq" class="section section--alt">
@@ -331,7 +390,7 @@
             <svg viewBox="0 0 24 24" class="icon"><path d="M20 8V7l-8 5-8-5v1l8 5 8-5zm0-3H4c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2z" fill="currentColor"/></svg>
             <div>
               <div class="contactItem__title" data-i18n="contact.emailTitle">Email</div>
-              <div class="contactItem__sub">hello@yourkitchn.com</div>
+              <div class="contactItem__sub">info@cook4u.my</div>
             </div>
           </div>
 
@@ -361,7 +420,7 @@
   </footer>
 
   <!-- Floating WhatsApp -->
-  <a class="floatWA" href="#" id="waFloat" aria-label="WhatsApp">
+  <a class="floatWA" href="#" id="waFloat" aria-label="WhatsApp contact">
     <span class="floatWA__icon" aria-hidden="true">
       <svg viewBox="0 0 24 24" class="icon"><path d="M20.5 3.5A11 11 0 003 20.6L2 23l2.5-.9A11 11 0 1020.5 3.5zM12 20a8 8 0 01-4-1l-.3-.2-2.4.8.8-2.3-.2-.3A8 8 0 1112 20zm4.5-5.9c-.2-.1-1.2-.6-1.4-.7-.2-.1-.4-.1-.6.1l-.5.6c-.2.2-.3.2-.6.1a6.5 6.5 0 01-1.9-1.2 7 7 0 01-1.3-1.6c-.1-.2 0-.4.1-.6l.4-.5c.1-.2.2-.4.1-.6l-.7-1.4c-.2-.4-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.4-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.9 4.4 4 .6.3 1 .4 1.3.5.6.2 1.2.2 1.6.1.5-.1 1.2-.5 1.4-1 .2-.5.2-.9.1-1-.1-.1-.2-.1-.4-.2z" fill="currentColor"/></svg>
     </span>
@@ -379,7 +438,5 @@
 </div>
 
   <script src="app.js"></script>
-
 </body>
 </html>
-<ul class="plan__list" data-meals style="display:none">
